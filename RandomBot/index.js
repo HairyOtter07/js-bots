@@ -3,7 +3,7 @@ const bot = new Discord.Client;
 const ytdl = require("ytdl-core");
 const moment = require("moment");
 
-const token = 'NzM3OTEzODc0OTQyMjYzMzk3.XyER2Q.3WFSWM_KxBRx3vxSDNkvvDWVksA';
+const auth = require("./rbtoken.json");
 
 const prefix = ">";
 
@@ -271,4 +271,4 @@ bot.on('message', msg=>{
     }
 })
 
-bot.login(token);
+bot.login(auth.token);
