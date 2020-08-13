@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client;
 const ytdl = require("ytdl-core");
 const moment = require("moment");
+const dotenv = require("dotenv").config();
 
 const auth = require("./rbtoken.json");
 
@@ -11,6 +12,8 @@ var version = "1.0.0";
 
 var servers = {};
 var commands = ['help:Displays this message', 'Music', ['play [url]:Plays the audio of the given url', 'skip:Skips the current track', 'stop:Stops audio and leaves voice'],'Information', ['user-info [user ping]:Displays information for pinged user', 'server-info:Displays server information', 'bot-info:Displays bot information']];
+
+
 
 bot.on('ready', () => {
     console.log("Bot is up and running")
@@ -271,4 +274,4 @@ bot.on('message', msg=>{
     }
 })
 
-bot.login(auth.token);
+bot.login(process.env.TOKEN);
