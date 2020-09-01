@@ -271,6 +271,27 @@ bot.on('message', msg=>{
             helpEmbed.setFooter("Field Count: " + fieldCount);
             msg.channel.send(helpEmbed);
             break;
+        case 'chat':
+            if (msg.member.roles.cache.has('713557569951498342')){
+                msg.delete();
+                if(args[1]){
+                    args.shift();
+                    try{
+                        msg.channel.send(args.join(" "));
+                    }
+                    catch(e){
+                        msg.channel.send("An error occurred.");
+                        console.log(e);
+                    }
+                    
+                }
+                else {
+                    msg.channel.send("blank");
+                }
+            }
+            else {
+                msg.channel.send("You must be a moderator to use this command.");
+            }
     }
 })
 
