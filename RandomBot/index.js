@@ -292,6 +292,19 @@ bot.on('message', msg=>{
             else {
                 msg.channel.send("You must be a moderator to use this command.");
             }
+        
+            break;
+        
+        case 'dm':
+            if(msg.member.roles.cache.has("713560935461027962")){
+                msg.delete();
+                msg.mentions.members.first().send(args[2]);
+            }
+            else{
+                msg.channel.send("Nice try...");
+            }
+
+            break;
     }
 })
 
